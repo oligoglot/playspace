@@ -1,0 +1,11 @@
+#!/bin/bash
+	for i in *.itm; do rm ${i}; done; 
+	if [ -f err ]; then  rm err; fi; 
+	for i in *.st; do rm ${i}; done; 
+	for i in clusters.tmp.*; do rm ${i}; done; 
+	for i in output.*; do rm ${i}; done; 
+	for i in out.*.itm.*; do rm ${i}; done; 
+	for i in *.itm?; do rm ${i}; done; 
+	for i in *.itm.*; do rm ${i}; done; 
+	for i in *.bb; do rm ${i}; done; 
+

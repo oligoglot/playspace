@@ -1,0 +1,91 @@
+
+Introduction 
+
+%%Give some introduction to FBT here%%
+
+NOTES: 
+
+1. In this version of FBT, code and data should be in the same 
+   directory. The parameters $instdir and $datadir in gram_init.pm
+   are not guaranteed to work! You have been warned! :-) 
+
+2. .dot files for the NTP carcinogens data set is included in this 
+   distribution. 
+
+Input data formats 
+
+%%Give an introduction to dotty format and the URL for graphviz%% 
+
+Mining .dot files 
+
+%%Expand the following points%%
+
+1. Set relevant parameters in gram_init.pm 
+2. Run fbt.pl 
+3. Results will be stored in clustersXX.st where XX is the iteration number
+   of the last iteration. 
+4. Each line in the above file will be isomorphic subgraphs (iff newfbt
+   runs to its logical conclusion) 
+5. For any given .itm file (say xyz.itm) listed in a cluster convert it to 
+   .dot file using itm2dot.pl (./itm2dot.pl xyz.itm > xyz.dot) 
+6. View the substructures using dotty (available from the Graphviz suite) 
+   or neato (also available from Graphviz) tools 
+7. Other outputs from the run: 
+	time.$$: Time in seconds taken for each iteration 
+	ctime.$$: Cumulative running time at the end of each iteration 
+	substructures.$$: No. of substructures at each iteration 
+	numpaths.dat.$$: No. of walks processed in each iteration 
+	data.$$: Other relevant data for this run 
+
+In the above, $$ is the process-id of the fbt process. 
+
+Relevant Parameters in gram_init.pm: 
+
+$ms: minimum filtration threshold 
+
+
+Mining PDB records 
+
+%%Expand the following steps: 
+1. Preprocess PDB files into .dot files using preprocessors 
+2. Mine .dot files using the steps outlined above 
+3. From the resulting .itm files, extract the relevant part of the protein
+   structure 
+4. View these extracted structures using RasMol or any other protein 
+   rendering tool 
+
+Preprocessing PDB files into .dot files 
+
+bb-preprocess.pl <PDBfile> 
+
+Returns a .dot file where each atom on the backbone is connected to all 
+other atoms on the backbone that lie within a distance of $radius angstroms. 
+$radius can be changed in proximity.pl 
+
+amino-preprocess.pl <PDBFILE> 
+
+Returns a .dot file where node labels are amino acid labels rather than 
+atom symbols. Results in an amino-acid proximity graph of the protein 
+molecule 
+
+
+Extracting lines from PDB file based on .itm files
+
+Using the following tools, you can extract only that part of a protein 
+structure that has been returned by a .itm file (an interesting substructure).
+
+extract.pl <itm_file> <PDB_file> 0 
+
+Will extract the relevant ATOM lines from a given PDB file based on the contents
+of the .itm file. The results will be displayed on stdout; it can be 
+redirected to a file. The 0 in the fourth parameter is a dummy. It is required
+only for backward compatibility of a previous version of the .itm file format. 
+
+
+aminoextract.pl <itm_file> <PDB_file> 0 
+
+Will extract the entire amino acid for each backbone atom found in the .itm
+file. The 0 in the fourth parameter is again a required dummy. 
+
+
+

@@ -1,0 +1,14 @@
+
+The software is copyrighted by the authors Srinath Srinivasa and 
+L. BalaSundaraRaman and the Indian Institute of Information Technology
+Bangalore (IIITB), India. 
+
+In very crisp terms: 
+
+The software provided here comes with absolutely no warranty of any kind
+and the user agrees to indemnify the authors and IIITB of any direct or 
+indirect losses due to the use of the software. 
+
+The software is free for educational and non-commercial use. For commercial
+use a separate agreement has to be signed with IIITB before usage. 
+
