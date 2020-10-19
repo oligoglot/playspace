@@ -1,0 +1,1 @@
+FBT is a novel filtration-based technique for mining maximal common subgraphs across large graphs like protein structures. Please refer to our paper to understand our algorithm: https://www.academia.edu/download/33659870/fbt.pdf
